@@ -434,6 +434,9 @@
       before it (fixed 2-inch height, normal fixed layout, no drag/resize
       handles or ruler). Any layout customization made with it while it
       existed is no longer applied.
+    v1.15.3 (2026-11-24) — External Tools: added "Change Deno" (Cash Change
+      & Store Vault, /ChangeDeno/) and "Vendor Payments" (/VendorPayments/)
+      tiles next to Denomination, each with its own share-link button.
 -->
 
 
@@ -1396,6 +1399,8 @@
         .icon-btn.denomination .tile-icon { background: #d1fae5; }
         .icon-btn.offercalc .tile-icon { background: #e0f2fe; }
         .icon-btn.transfer .tile-icon { background: #e6fffa; }
+        .icon-btn.changedeno .tile-icon { background: #fef3c7; }
+        .icon-btn.vendorpay .tile-icon { background: #f3e8ff; }
         .icon-btn.active-toggle .tile-icon { background: rgba(255, 255, 255, 0.25); }
 
         .icon-btn .t1 {
@@ -4761,6 +4766,40 @@ Millet Groceries & Snacks</textarea>
                     </button>
                 </div>
 
+                <!-- Change Deno (Cash Change & Store Vault) Link Button -->
+                <div class="icon-btn-wrap">
+                    <a class="icon-btn changedeno" href="https://lalithanaturals.github.io/ChangeDeno/" target="_blank" rel="noopener noreferrer">
+                        <span class="tile-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 3h5v5"/><path d="M21 3l-7 7"/><path d="M8 21H3v-5"/><path d="M3 21l7-7"/><circle cx="12" cy="12" r="2.5"/>
+                            </svg>
+                        </span>
+                        <span class="t1">Change Deno ↗</span>
+                    </a>
+                    <button type="button" class="tile-share-btn" title="Share Change Deno link" onclick="shareExternalTool(event, 'Change Deno', 'https://lalithanaturals.github.io/ChangeDeno/')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Vendor Payments Link Button -->
+                <div class="icon-btn-wrap">
+                    <a class="icon-btn vendorpay" href="https://lalithanaturals.github.io/VendorPayments/" target="_blank" rel="noopener noreferrer">
+                        <span class="tile-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/>
+                            </svg>
+                        </span>
+                        <span class="t1">Vendor Payments ↗</span>
+                    </a>
+                    <button type="button" class="tile-share-btn" title="Share Vendor Payments link" onclick="shareExternalTool(event, 'Vendor Payments', 'https://lalithanaturals.github.io/VendorPayments/')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/>
+                        </svg>
+                    </button>
+                </div>
+
             </div>
         </div>
 
@@ -5543,7 +5582,7 @@ Millet Groceries & Snacks</textarea>
         // ---- App version ----
         // Bump this (and add a line to the version-log comment at the very
         // top of this file) every time the file is updated and re-uploaded.
-        const APP_VERSION = 'v1.15.2';
+        const APP_VERSION = 'v1.15.3';
 
         // ---- Product Catalog: seed data ----
         // Uploaded from "Lalitha_Naturals_Brand_Items.xlsx" (322 items,
